@@ -72,13 +72,13 @@ public class EventosDAOImpl implements EventosDAO {
 	       		"select ev "
 	       		+ " from Eventos ev "
 	       		+ " where ev.nombre LIKE: Busqueda "
-	       		+" or ev.fecha_inicio LIKE: Busqueda "
-	       		+" or ev.fecha_fin LIKE: Busqueda "
+	       		+" or ev.fechaInicio LIKE: Busqueda "
+	       		+" or ev.fechaFin LIKE: Busqueda "
 	       		+" or ev.asunto LIKE: Busqueda "
 	       		+" or ev.lugar LIKE: Busqueda "
 	       		+" or ev.imagen LIKE: Busqueda "
-	       		+" or ev.imagen_nombre LIKE: Busqueda "
-	       		+" or ev.promedio_calificacion LIKE: Busqueda "
+	       		+" or ev.imagenNombre LIKE: Busqueda "
+	       		+" or ev.promedioCalificacion LIKE: Busqueda "
  		
 
 	    		,Eventos.class);

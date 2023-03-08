@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.distribuida.entities.Eventos;
 import com.distribuida.entities.Regiones;
 import com.distribuida.service.RegionesService;
 
@@ -15,26 +16,25 @@ ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("App
 		
 		RegionesService RegionesService = context.getBean("regionesServiceImpl",RegionesService.class);
 		
-		List<Regiones> Regiones = RegionesService.findAll();
+	//	List<Regiones> Regiones = RegionesService.findAll();
 
 		//Regiones Evento = RegionesService.findOne(1);
 		
 		
 		
-		RegionesService.add("costa");
+	//	RegionesService.add("oriente");
 
-//		RegionesService.up(1,"sierra");
+	//RegionesService.up(2,"costa");
 	//
-	//  RegionesService.del(1);	
+	 // RegionesService.del(1004);	
+		List<Regiones> region =RegionesService.findAll("costa");
 	//	
-//		RegionesService.findAll("1");
-	//	
-		for(Regiones item : Regiones) {
+		for(Regiones item : region) {
 			System.out.println(item);
 		
 		}
 		
-		//System.out.println(Regiones);
+		System.out.println(region);
 	}
 
 }

@@ -24,5 +24,7 @@ public interface EventosDetallesService {
 	public void up(int id, String descripcion, int calificacion, int id_evento, int id_usuario);
 
 	public EventosDetalles findOne(EventosDetalles eventosDetalles);
+
+	List<EventosDetalles> findAll(String busqueda);
 	
 }

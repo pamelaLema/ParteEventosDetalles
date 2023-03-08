@@ -15,26 +15,26 @@ ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("App
 		
 		CiudadesService CiudadesService = context.getBean("ciudadesServiceImpl",CiudadesService.class);
 		
-		List<Ciudades> Ciudades = CiudadesService.findAll();
+		//List<Ciudades> Ciudades = CiudadesService.findAll();
 
-		Ciudades Evento = CiudadesService.findOne(1);
+		//Ciudades Evento = CiudadesService.findOne(1);
 		
 		
 		
-		//CiudadesService.add("Tumabco");
+		//CiudadesService.add("quito",2);
 
-		//CiudadesService.up(1,"Pifo");
+		//CiudadesService.up(2002,"Pifo");
 	//
-	  CiudadesService.del(2);	
+	// CiudadesService.del(2002);	
 	//	
-//		CiudadesService.findAll("1");
+		 List<Ciudades> ciudades1 =	CiudadesService.findAll("1");
 	//	
-		for(Ciudades item : Ciudades) {
+		/*for(Ciudades item : Ciudades) {
 			System.out.println(item);
 		
-		}
-		
-		System.out.println(Ciudades);
+		}*/
+	
+		System.out.println(ciudades1);
 	}
 
 	}

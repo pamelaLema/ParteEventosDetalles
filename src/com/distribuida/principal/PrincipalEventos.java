@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.distribuida.entities.Ciudades;
 import com.distribuida.entities.Eventos;
 import com.distribuida.service.EventosService;
 
@@ -17,26 +18,26 @@ public class PrincipalEventos {
 	
 	EventosService EventosService = context.getBean("eventosServiceImpl",EventosService.class);
 	
-	List<Eventos> Eventos = EventosService.findAll();
+	//List<Eventos> Eventos = EventosService.findAll();
 
-	//Eventos Evento = EventosService.findOne(1);
+   //Eventos Evento = EventosService.findOne(1);
 	
 	
 	
-	EventosService.add("casaabiertaismac",new Date(),new Date(),"asunto","Tumbaco",null, "imagennombre",9.5 );
+	//EventosService.add("casasoftware1",new Date(),new Date(),"institutoismac","Tumbaco",null, "imagenn1",9.5,1 );
 
-//	EventosService.up(1,"casaabierta",new Date(),"asunto","Tumbaco","imagen","imagen",2);
+	//EventosService.up(2002,"casaabierpifo",new Date(),new Date(),"asunto","pifo",null,"imagen",2.5,2);
 //
-//  EventosService.del(1);	
+ // EventosService.del(2002);	
 //	
-//	EventosService.findAll("1");
+	List<Eventos> evento =EventosService.findAll("1");
 //	
-	for(Eventos item : Eventos) {
+	/*for(Eventos item : Eventos) {
 		System.out.println(item);
 	
-	}
+	}*/
 	
-	//System.out.println(Eventos);
+	System.out.println(evento);
 	//context.close();
 }
 }

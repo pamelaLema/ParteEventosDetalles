@@ -5,10 +5,12 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.distribuida.dao.EventosDAO;
 import com.distribuida.dao.EventosDetallesDAO;
 import com.distribuida.dao.UsuarioDAO;
+import com.distribuida.entities.Ciudades;
 import com.distribuida.entities.Eventos;
 import com.distribuida.entities.EventosDetalles;
 import com.distribuida.entities.Usuario;
@@ -62,7 +64,13 @@ public class EventosDetallesServiceImpl implements EventosDetallesService {
 		eventosDetallesDAO.del(id);
 	}
 
-	
+	@Override
+	@Transactional
+	public List<EventosDetalles> findAll(String busqueda) {
+		// TODO Auto-generated method stub
+		return eventosDetallesDAO.findAll(busqueda);
+	}
+
 
 	@Override
 	public void add(String descripcion, int calificacion, int id_evento, int id_usuario) {

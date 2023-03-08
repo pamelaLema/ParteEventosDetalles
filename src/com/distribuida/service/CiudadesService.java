@@ -21,9 +21,9 @@ public interface CiudadesService {
 	public List<Ciudades> findAll(String busqueda);
 	
 	
-   public void add(String ciudad);
+   public void add(String ciudad,int id_provincia);
 	
-	public void up(int id,String ciudad);
+	public void up(int id,String ciudad/*, int id_provincia*/);
 	
 	
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.distribuida.entities.Ciudades;
 import com.distribuida.entities.EventosDetalles;
 import com.distribuida.service.EventosDetallesService;
 
@@ -15,26 +16,27 @@ public class PrincipalEventosDetalles {
 		
 		EventosDetallesService EventosDetallesService = context.getBean("eventosDetallesServiceImpl",EventosDetallesService.class);
 		
-		List<EventosDetalles> EventosDetalles = EventosDetallesService.findAll();
+		//List<EventosDetalles> EventosDetalles = EventosDetallesService.findAll();
 
-		EventosDetalles Evento = EventosDetallesService.findOne(1);
+	//	EventosDetalles Evento = EventosDetallesService.findOne(1);
 		
 		
 		
-    //	EventosDetallesService.add("casaabierta",10,1,1);
+    	//EventosDetallesService.add("casaabiertadetalle2",10,1,1);
 
-	EventosDetallesService.up(1,"casaabiertaismac",9,1,1);
+	 //EventosDetallesService.up(2274,"casaabiertaismac",9,1,1);
 	//
-	//  EventosDetallesService.del(1);	
+	 // EventosDetallesService.del(2274);	
 	//	
-//		EventosDetallesService.findAll("1");
+		List<EventosDetalles> Evento=EventosDetallesService.findAll("1");
+		
 	//	
-		for(EventosDetalles item : EventosDetalles) {
+		/*for(EventosDetalles item : EventosDetalles) {
 			System.out.println(item);
 		
-		}
+		}*/
 		
-		System.out.println(EventosDetalles);
+		System.out.println(Evento);
 	}
 
 }

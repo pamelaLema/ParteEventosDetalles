@@ -12,6 +12,7 @@ import com.distribuida.dao.ProvinciasDAO;
 import com.distribuida.entities.Ciudades;
 import com.distribuida.entities.Eventos;
 import com.distribuida.entities.Provincias;
+import com.distribuida.entities.Regiones;
 import com.distribuida.entities.Usuario;
 
 @Service
@@ -22,8 +23,8 @@ public class CiudadesServiceImpl implements CiudadesService {
 	@Autowired
 	private CiudadesDAO ciudadesDAO;
 	
-	/*@Autowired
-	private ProvinciasDAO provinciasDAO;*/
+	@Autowired
+	private ProvinciasDAO provinciasDAO;
 	@Override
 	@Transactional
 	public List<Ciudades> findAll() {
@@ -72,19 +73,21 @@ public class CiudadesServiceImpl implements CiudadesService {
 
 	@Override
 	@Transactional
-	public void add(String ciudad) {
+	public void add(String ciudad,int id_provincia) {
 		// TODO Auto-generated method stub
 		 Ciudades ciudades = new Ciudades(ciudad);
-									
+		 Provincias provincias = provinciasDAO.findOne(id_provincia);
+		 ciudades.setProvincias(provincias);
+		
 			ciudadesDAO.add(ciudades);
 	}
 
 	@Override
 	@Transactional
-	public void up(int id, String ciudad) {
+	public void up(int id, String ciudad/*, int id_provincia*/) {
 		// TODO Auto-generated method stub
 		Ciudades ciudades = new Ciudades(id,ciudad);
-								
+		/* Provincias provincias = provinciasDAO.findOne(id_provincia);		*/		
 			ciudadesDAO.up(ciudades);
 		
 	}

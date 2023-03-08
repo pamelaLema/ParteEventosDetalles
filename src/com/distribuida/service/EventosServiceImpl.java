@@ -71,15 +71,20 @@ public class EventosServiceImpl implements EventosService {
 		
 		eventosDAO.add(eventos);
 	}*/
-
 	@Override
-	public void up(int id, String nombre, Date fechaInicio, Date fechaFin, String asunto, String lugar, byte[] imagen, String imagenNombre,Double promedioCalificacion) {
+	@Transactional
+	public List<Eventos> findAll(String busqueda) {
+		// TODO Auto-generated method stub
+		return eventosDAO.findAll(busqueda);
+	}
+	@Override
+	public void up(int id, String nombre, Date fechaInicio, Date fechaFin, String asunto, String lugar, byte[] imagen, String imagenNombre,Double promedioCalificacion,int id_ciudad) {
 		// TODO Auto-generated method stub
          Eventos eventos = new Eventos(id,nombre,fechaInicio,fechaFin,asunto,lugar,imagen,imagenNombre,promedioCalificacion);
 		
-		/*Ciudades ciudades = ciudadesDAO.findOne(id_ciudad);
+		Ciudades ciudades = ciudadesDAO.findOne(id_ciudad);
 		
-		eventos.setCiudades(ciudades);*/
+		eventos.setCiudades(ciudades);
 		
 		eventosDAO.up(eventos);
 	}
@@ -88,9 +93,12 @@ public class EventosServiceImpl implements EventosService {
 
 	@Override
 	public void add(String nombre, Date fechaInicio, Date fechaFin, String asunto, String lugar, byte[] imagen,
-			String imagenNombre, double promedioCalificacion) {
+			String imagenNombre, double promedioCalificacion,int id_ciudad) {
 		// TODO Auto-generated method stub
         Eventos eventos = new Eventos(nombre,fechaInicio,fechaFin,asunto,lugar,imagen,imagenNombre,promedioCalificacion);
+       Ciudades ciudades = ciudadesDAO.findOne(id_ciudad);
+		
+		eventos.setCiudades(ciudades);
 		eventosDAO.up(eventos);
 
 		

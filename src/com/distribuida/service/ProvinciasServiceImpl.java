@@ -13,7 +13,7 @@ import com.distribuida.entities.Regiones;
 import com.distribuida.entities.Provincias;
 
 @Service
-public abstract class ProvinciasServiceImpl implements ProvinciasService {
+public class ProvinciasServiceImpl implements ProvinciasService {
 
 
 	@Autowired
@@ -33,13 +33,13 @@ public abstract class ProvinciasServiceImpl implements ProvinciasService {
 		return provinciasDAO.findOne(id);
 	}
 
-	/*@Override
+	@Override
 	@Transactional
 	public void add(Provincias provincias) {
 		// TODO Auto-generated method stub
 		provinciasDAO.add(provincias);
 
-	}*/
+	}
 
 	@Override	
 	public void up(Provincias provincias) {
@@ -61,7 +61,7 @@ public abstract class ProvinciasServiceImpl implements ProvinciasService {
 		return provinciasDAO.findAll(busqueda);
 	}
 
-	/*@Override
+	@Override
 	@Transactional
 	public void add(String provincia, int id_region) {
 		// TODO Auto-generated method stub
@@ -69,26 +69,34 @@ public abstract class ProvinciasServiceImpl implements ProvinciasService {
 			
 		 Regiones regiones = regionesDAO.findOne(id_region);
 			
-			Provincias.setRegiones(regiones);
+			provincias.setRegiones(regiones);
 			
 			provinciasDAO.add(provincias);
-	}*/
+	}
 	@Override
-	public void up(int id, String provincia) {
+	public void up(int id, String provincia, int id_region) {
 		// TODO Auto-generated method stub
 		 Provincias provincias = new Provincias(id,provincia);
-						
+		 Regiones regiones = regionesDAO.findOne(id_region);
+
 			provinciasDAO.up(provincias);
 		
 	}
 
-	@Override
+/*	@Override
+	public void add(Provincias provincias) {
+		// TODO Auto-generated method stub
+		
+	}*/
+
+	/*@Override
 	public void add(String provincia) {
 		// TODO Auto-generated method stub
 		 Provincias provincias = new Provincias(provincia);
+		 provincias.setRegiones(null);;
 			provinciasDAO.add(provincias);
 
-	}
+	}*/
 
 	
 }

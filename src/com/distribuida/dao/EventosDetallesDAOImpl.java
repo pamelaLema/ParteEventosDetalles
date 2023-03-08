@@ -94,7 +94,7 @@ public class EventosDetallesDAOImpl implements EventosDetallesDAO {
 		   Query<EventosDetalles> query= session.createQuery(
 	       		
 	       		"select evd "
-	       		+ " from Eventos_Detalles evd "
+	       		+ " from EventosDetalles evd "
 	       		+ " where evd.descripcion LIKE: Busqueda "
 	       		+" or evd.calificacion LIKE: Busqueda "
 	       		
